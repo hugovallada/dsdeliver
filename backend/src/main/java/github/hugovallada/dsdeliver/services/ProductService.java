@@ -19,7 +19,7 @@ public class ProductService {
 
     @Transactional(readOnly = true) // readonly não faz o lock de escrita no banco... trabalha com transações
     public List<ProductDTO> findAll(){
-        var products = repository.findAll();
+        var products = repository.findAllByOrderByNameAsc();
         return products.stream().map(product -> new ProductDTO(product)).collect(Collectors.toList());
     }
 }
