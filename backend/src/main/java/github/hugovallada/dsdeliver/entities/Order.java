@@ -30,7 +30,7 @@ public class Order implements Serializable {
     private Double longitude;
 
     @Setter
-    private Instant moments;
+    private Instant moment;
 
     @Setter
     private OrderStatus status;
@@ -43,12 +43,12 @@ public class Order implements Serializable {
     )
     private Set<Product> products = new HashSet<>();
 
-    public Order(Long id, String address, Double latitude, Double longitude, Instant moments, OrderStatus status) {
+    public Order(Long id, String address, Double latitude, Double longitude, Instant moment, OrderStatus status) {
         this.id = id;
         this.address = address;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.moments = moments;
+        this.moment = moment;
         this.status = status;
     }
 }
