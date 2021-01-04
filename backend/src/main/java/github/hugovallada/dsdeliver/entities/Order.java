@@ -35,7 +35,7 @@ public class Order implements Serializable {
     @Setter
     private OrderStatus status;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "tb_order_product",
             joinColumns = @JoinColumn(name = "order_id"),
