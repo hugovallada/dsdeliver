@@ -49,4 +49,13 @@ public class OrderService {
         var savedOrder = repository.save(order);
         return new OrderDto(savedOrder);
     }
+
+    @Transactional
+    public  OrderDto setDelivered(Long id){
+        var order = repository.getOne(id);
+        order.setStatus(OrderStatus.DELIVERED);
+        var updatedOrder = repository.save(order);
+
+        return new OrderDto(updatedOrder);
+    }
 }
